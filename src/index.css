@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --color-nom-green: #a8c67c;
+  --color-nom-bg: #f5f5dc;
+  --color-nom-brown: #4a3728;
+}
+
+body {
+  @apply bg-nom-bg text-nom-brown;
+}
