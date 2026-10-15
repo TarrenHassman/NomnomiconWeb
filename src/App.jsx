@@ -2,7 +2,10 @@ import './App.css'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { MockupShowcase } from './components/MockupShowcase'
+<<<<<<< HEAD
 import { CompendiumShowcase } from './components/CompendiumShowcase'
+=======
+>>>>>>> 19f2c4c (deeplink)
 import { Footer } from './components/Footer'
 import { SiAppstore, SiGoogleplay } from 'react-icons/si'
 
@@ -17,11 +20,23 @@ function App() {
         <Hero />
        
         <MockupShowcase />
+<<<<<<< HEAD
         <section className="relative z-30 -mt-36 pb-12" aria-labelledby="showcase-download-heading">
           <div className="mx-auto max-w-3xl rounded-4xl border border-white/70 bg-white/70 px-7 py-8 text-center shadow-2xl shadow-nom-brown/15 backdrop-blur-xl md:px-14 md:py-10">
             <h2 id="showcase-download-heading" className="mb-4 text-2xl font-bold md:text-3xl">
               Your next food adventure starts here.
             </h2>
+=======
+
+        <section className="relative z-20 py-20" aria-labelledby="download-heading">
+          <div className="mx-auto max-w-3xl rounded-4xl border border-white/70 bg-white/55 px-7 py-12 text-center shadow-2xl shadow-nom-brown/10 backdrop-blur-xl md:px-14 md:py-16">
+            <h2 id="download-heading" className="mb-4 text-3xl font-bold md:text-5xl">
+              Your next food adventure starts here.
+            </h2>
+            <p className="mb-8 text-nom-brown/70">
+              Find NomNomicon on your app store.
+            </p>
+>>>>>>> 19f2c4c (deeplink)
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
                 href={appStoreUrl}
@@ -53,6 +68,7 @@ function App() {
             </div>
           </div>
         </section>
+<<<<<<< HEAD
         <CompendiumShowcase />
 
           <section className="relative z-20 pt-4 pb-20" aria-labelledby="download-heading">
@@ -94,6 +110,8 @@ function App() {
             </div>
           </div>
         </section>
+=======
+>>>>>>> 19f2c4c (deeplink)
       </main>
 
       <Footer />
