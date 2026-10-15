@@ -1,62 +1,13 @@
-import { useState, useEffect } from 'react'
 import './App.css'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
-import { WaitlistForm } from './components/WaitlistForm'
-import { ReferralSystem } from './components/ReferralSystem'
-import { Features } from './components/Features'
 import { MockupShowcase } from './components/MockupShowcase'
 import { Footer } from './components/Footer'
-import { joinWaitlist, getWaitlistCount } from './firebase' // Import Firebase functions
-import { CompendiumShowcase } from './components/CompendiumShowcase'
+import { SiAppstore, SiGoogleplay } from 'react-icons/si'
+
+const appStoreUrl = import.meta.env.VITE_APP_STORE_URL || 'https://apps.apple.com/search?term=Nomnomicon'
 
 function App() {
-  const [email, setEmail] = useState('')
-  const [isJoined, setIsJoined] = useState(false)
-  const [waitlistCount, setWaitlistCount] = useState(0) // Start at 0, fetch real count
-  const [referralCode, setReferralCode] = useState('')
-  const [isLoading, setIsLoading] = useState(false) // Add loading state
-
-  useEffect(() => {
-    // Fetch initial waitlist count from Firebase
-    const fetchCount = async () => {
-      const count = await getWaitlistCount();
-      setWaitlistCount(count);
-    };
-    fetchCount();
-  }, [])
-
-  const handleJoin = async (e) => {
-    e.preventDefault()
-    if (email) {
-      setIsLoading(true);
-      // Get referral code from URL if exists
-      const urlParams = new URLSearchParams(window.location.search);
-
-      try {
-        const result = await joinWaitlist(email);
-        
-        if (result.success) {
-          setIsJoined(true)
-          if (result.isNew) {
-            setWaitlistCount(prev => prev + 1)
-          }
-          // Set referral link with the generated code from Firebase
-          const userReferralCode = result.data.referralCode;
-          setReferralCode(`${userReferralCode}`);
-        } else {
-          console.error("Failed to join waitlist:", result.error);
-          alert("Something went wrong. Please try again.");
-        }
-      } catch (error) {
-        console.error("Error joining waitlist:", error);
-        alert("An error occurred. Please check your connection.");
-      } finally {
-        setIsLoading(false);
-      }
-    }
-  }
-
   return (
     <div className="min-h-screen bg-nom-bg text-nom-brown font-sans selection:bg-nom-green selection:text-white">
       <Header />
@@ -65,23 +16,45 @@ function App() {
         <Hero />
         <MockupShowcase />
 
-          <div style={{paddingTop: '8rem'}}>
-            {!isJoined ? (
-          <WaitlistForm
-            email={email}
-            setEmail={setEmail}
-            handleJoin={handleJoin}
-            waitlistCount={waitlistCount}
-            isLoading={isLoading}
-          />
-        ) : (
-          <ReferralSystem
-            waitlistCount={waitlistCount}
-            referralCode={referralCode}
-          />
-        )}
+        <section className="relative z-20 py-20" aria-labelledby="download-heading">
+          <div className="mx-auto max-w-3xl rounded-4xl border border-white/70 bg-white/55 px-7 py-12 text-center shadow-2xl shadow-nom-brown/10 backdrop-blur-xl md:px-14 md:py-16">
+            <h2 id="download-heading" className="mb-4 text-3xl font-bold md:text-5xl">
+              Your next food adventure starts here.
+            </h2>
+            <p className="mb-8 text-nom-brown/70">
+              Find NomNomicon on your app store.
+            </p>
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <a
+                href={appStoreUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Open NomNomicon on the App Store"
+                className="group inline-flex items-center gap-4 rounded-2xl border border-white/80 bg-white/65 px-5 py-4 text-left shadow-md shadow-nom-brown/10 transition hover:-translate-y-1 hover:bg-white/90 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-nom-brown"
+              >
+                <span className="grid size-14 shrink-0 place-items-center rounded-xl bg-nom-bg text-[#1769e0]">
+                  <SiAppstore aria-hidden="true" size={34} />
+                </span>
+                <span>
+                  <span className="block text-sm text-nom-brown/65">Download on the</span>
+                  <span className="block text-lg font-bold">App Store</span>
+                </span>
+              </a>
+              <div
+                aria-label="Google Play, coming soon"
+                className="inline-flex cursor-default items-center gap-4 rounded-2xl border border-white/60 bg-white/35 px-5 py-4 text-left opacity-75"
+              >
+                <span className="grid size-14 shrink-0 place-items-center rounded-xl bg-white/60 text-[#34a853]">
+                  <SiGoogleplay aria-hidden="true" size={32} />
+                </span>
+                <span>
+                  <span className="block text-sm text-nom-brown/65">Coming soon</span>
+                  <span className="block text-lg font-bold">Google Play</span>
+                </span>
+              </div>
+            </div>
           </div>
-
+        </section>
       </main>
 
       <Footer />
