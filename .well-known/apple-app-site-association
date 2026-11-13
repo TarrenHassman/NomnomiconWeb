@@ -3,7 +3,7 @@
     "details": [
       {
         "appIDs": ["5S3X53D52B.com.nutrition.mysticmarket"],
-        "components": [{ "/": "/r/*" }]
+        "components": [{ "/": "/r/*" }, { "/": "/m/*" }]
       }
     ]
   }

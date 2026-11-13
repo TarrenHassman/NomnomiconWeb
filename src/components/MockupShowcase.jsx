@@ -14,7 +14,7 @@ export const MockupShowcase = () => {
   const phone3Y = useTransform(scrollY, [0, 1000], [0, -100]);
 
   return (
-    <div className="relative h-[500px] md:h-[480px] mt-[-60px] md:mt-[-160px] z-10 pointer-events-none w-full max-w-[100vw] overflow-hidden md:overflow-visible">
+    <div className="relative h-[700px] md:h-[700px] mt-[-20px] md:mt-[-24px] z-10 pointer-events-none w-full max-w-[100vw] overflow-hidden md:overflow-visible">
       <div className="absolute inset-0 md:flex md:items-start md:justify-center md:gap-12 md:px-4">
         
         {/* Phone 1 (Search - Left Overlay on Mobile, Left on Desktop) */}
@@ -59,7 +59,6 @@ export const MockupShowcase = () => {
             rounded-[2rem] md:rounded-[4rem] 
             border-[6px] md:border-[12px] border-nom-brown 
             shadow-[0_20px_50px_-10px_rgba(0,0,0,0.3)] md:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)]
-            md:translate-y-48 
             pointer-events-auto overflow-hidden
           "
         >
@@ -78,7 +77,7 @@ export const MockupShowcase = () => {
           style={{ y: phone3Y }}
           className="
             absolute md:relative 
-            top-[220px] right-[15%] md:top-auto md:right-auto
+               top-[160px] right-[15%] md:top-auto md:right-auto
             z-20 md:z-auto
             w-[65%] max-w-[260px] md:w-72 md:max-w-none
             aspect-[9/19] 

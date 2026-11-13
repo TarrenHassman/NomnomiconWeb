@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import mockup4 from '../assets/mockup4.png'; // Reusing mockup2 as it shows ingredient details which fits the "vitamins and minerals" theme
+import mockup4 from '../assets/mockup4.png';
 
 export const CompendiumShowcase = () => {
   return (
@@ -15,19 +15,22 @@ export const CompendiumShowcase = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-nom-brown mb-6 leading-tight">
-                Unlock Nature's <br />
-                <span className="text-nom-green">Compendium</span>
+              <p className="mb-4 text-5xl font-bold uppercase tracking-widest text-nom-green">
+                Not just tracking
+              </p>
+              <h2 className="text-4xl md:text-3xl font-bold text-nom-brown mb-6 leading-tight">
+                Share recipes. <br />
+                <span className="text-nom-green">Sell your favorites.</span>
               </h2>
               <p className="text-lg md:text-xl text-nom-brown/80 mb-8 leading-relaxed">
-                Dive deep into the world of vitamins and minerals. Understand not just what they are, but why your body craves them.
+                Turn the recipes you love into something worth sharing. Send them for free or set a price and sell them directly.
               </p>
               
               <ul className="space-y-6">
                 {[
-                  { title: "Know Your Nutrients", desc: "Detailed profiles on every essential vitamin and mineral." },
-                  { title: "Spot the Signs", desc: "Learn to recognize the subtle signs of deficiency." },
-                  { title: "Find the Source", desc: "Discover which foods are packed with the nutrients you need." }
+                  { title: "Share it your way", desc: "Send recipes to friends and followers through your favorite platforms." },
+                  { title: "Set your price", desc: "Offer a recipe for free or choose what it costs to view." },
+                  { title: "Made for food lovers", desc: "Keep your recipes in circulation and let great cooking travel." }
                 ].map((item, index) => (
                   <motion.li 
                     key={index}
@@ -62,14 +65,12 @@ export const CompendiumShowcase = () => {
               <div className="w-full h-full bg-nom-bg">
                  <img 
                   src={mockup4} 
-                  alt="NomNomicon Nutrient Compendium" 
+                  alt="NomNomicon recipe sharing and sale screen" 
                   className="w-full h-full object-cover"
                 />
               </div>
             </motion.div>
             
-            {/* Decorative Background Elements */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-gradient-to-tr from-nom-green/20 to-transparent rounded-full blur-3xl -z-10"></div>
           </div>
 
         </div>

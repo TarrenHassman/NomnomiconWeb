@@ -11,7 +11,7 @@ export const Hero = () => {
   return (
     <motion.div 
       style={{ opacity: titleOpacity, y: titleY, scale: titleScale }}
-      className="text-center pb-24 md:pb-12 sticky top-20 z-0"
+         className="text-center pb-8 relative z-0"
     >
       <h1 className="text-[3.5rem] leading-[0.9] md:text-[9.5rem] font-bold tracking-tighter mb-0 md:leading-[0.85] text-nom-brown">
         Not Just Calorie Tracking
