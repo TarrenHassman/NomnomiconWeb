@@ -60,7 +60,7 @@ export const CompendiumShowcase = () => {
               whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative w-[280px] md:w-[320px] aspect-[9/19] bg-nom-brown rounded-[2.5rem] border-[8px] border-nom-brown shadow-2xl overflow-hidden"
+              className="relative w-70 md:w-80 aspect-9/19 bg-nom-brown rounded-[2.5rem] border-8 border-nom-brown shadow-2xl overflow-hidden"
             >
               <div className="w-full h-full bg-nom-bg">
                  <img 

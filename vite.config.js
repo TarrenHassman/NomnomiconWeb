@@ -11,7 +11,7 @@ export default defineConfig({
       name: 'copy-app-link-associations',
       apply: 'build',
       closeBundle() {
-        return cp(resolve('web/.well-known'), resolve('dist/.well-known'), {
+        return cp(resolve('.well-known'), resolve('dist/.well-known'), {
           recursive: true,
         })
       },
